@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Word Frequency</title>
+</head>
+<body>
+  <script>
+    var names = "sachin sachin kohli kohli kohli dhoni";
+    var players = names.split(' ');
+    var playerHash = new Object();
+    players.forEach(function(player){
+      console.log(playerHash);
+      if (playerHash.hasOwnProperty(player)) {
+        playerHash[player] += 1;
+      } else {
+        playerHash[player] = 1;
+      }
+    });
+
+    console.log(playerHash);
+  </script>
+</body>
+</html>

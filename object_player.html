@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Object Player</title>
+</head>
+<body>
+  <script>
+    function Player() {
+      this.name;
+      this.rank;
+      this.runs;
+      this.details = function() {
+        return this.name + " " + this.rank + " " + this.runs;
+      };
+      this.moveUpRank = function() {
+        if (this.rank === 1) {
+          return "Already ranked 1st";
+        } else {
+          return this.rank -= 1;
+        }
+      };
+    }
+
+    var player = new Player();
+    player.name = "Virat";
+    player.rank = 2;
+    player.runs = 8000;
+    player.name = "Virat Kohli";
+    player.team = "RCB";
+
+    console.log(player);
+
+    var player1 = new Player();
+    player1.name = "Sachin Tendulkar";
+    player1.rank = 1;
+    player1.runs = 18000;
+
+    console.log(player1);
+
+    //console.log(player);
+    //console.log(player.details());
+    //console.log(player.moveUpRank());
+    //console.log(player.details());
+    //console.log(player.moveUpRank());
+    //console.log(player1.details());
+
+    var players = [];
+    players.push(player,player1);
+
+    players.forEach(function(player) {
+      console.log(player.name);
+      console.log(player.details());
+    });
+  </script>
+</body>
+</html>

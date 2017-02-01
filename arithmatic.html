@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Arithmatic</title>
+</head>
+<body>
+
+  <p>arithmatic(10, 20, "add") : <span id="v1"> </span></p>
+  <p>arithmatic(10, 20, "multiply") : <span id="v2"> </span></p>
+  <script>
+    function arithmatic(n1, n2, operator){
+      if (operator == "add") {
+        return n1 + n2;
+      } else if (operator == "multiply") {
+        return n1 * n2;
+      } else {
+        return "invalid operator";
+      }
+    }
+
+    var value1 = arithmatic(10, 20, "add")
+    var value2 = arithmatic(10, 20, "multiply")
+
+    var v1Handle = document.getElementById("v1"); // jquery - $('#v1')
+    var v2Handle = document.getElementById("v2");
+
+    v1Handle.innerHTML = value1;
+    v2Handle.innerHTML = value2;
+
+  </script>
+</body>
+</html>

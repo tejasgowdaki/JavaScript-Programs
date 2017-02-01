@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workout</title>
+</head>
+<body>
+  <script>
+
+    // First
+
+    var array1 = [34,15,88,2];
+    var array2 = [34,-345,-1,100];
+    console.log(findMinimum(array1));
+    console.log(findMinimum(array2));
+
+    function findMinimum(numbers) {
+      min = numbers[0];
+      numbers.forEach(function(number){
+        if (number < min) {
+          min = number;
+        }
+      })
+      return min
+    }
+
+    function findMaximum(numbers) {
+      max = numbers[0];
+      numbers.forEach(function(number){
+        if (number > max) {
+          max = number;
+        }
+      })
+      return max
+    }
+
+    // Second
+
+    var input1 = "1 2 3 4 5";
+    var input2 = "1 2 -3 4 5";
+    var input3 = "1 9 3 4 -5";
+
+    findMaxMin(input1);
+    findMaxMin(input2);
+    findMaxMin(input3);
+
+    function findMaxMin(input) {
+      values = input.split(' ');
+      min = findMinimum(values);
+      max = findMaximum(values);
+      console.log(max + " " + min);
+    }
+
+    // Third
+
+    var num = [1,2,3,4,5,6,7,8,9,0];
+
+    console.log(generteMobileNumber(num));
+
+    function generteMobileNumber(numb) {
+      return "(" + numb.splice(0,3).join('') + ") " + numb.splice(0,3).join('') + "-" + numb.join('')
+    }
+
+
+  </script>
+</body>
+</html>

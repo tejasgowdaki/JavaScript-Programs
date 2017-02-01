@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Strings</title>
+</head>
+<body>
+  <script>
+    /*
+    var sentence = prompt("Enter a sentence..");
+    var word = prompt("Enter a word to find it's index..");
+    var result = sentence.indexOf(word);
+    if (result == -1) {
+      alert("Word not found!!");
+    } else {
+      alert("Word is present at " + result + " index");
+    }
+    */
+
+    var re = /apples/gi; // g= global, i = ignore case
+    var phrase = "Apples are round and apples are juicy";
+    var new_string = phrase.replace(re, 'oranges');
+    console.log(new_string);
+
+  </script>
+</body>
+</html>

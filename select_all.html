@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Select All</title>
+</head>
+<body>
+  <form>
+    <input type="checkbox" id="selectAll"> Select All<br/>
+    <div id="players">
+      <input type="checkbox" id="sachin"> Sachin<br/>
+      <input type="checkbox" id="virat"> Virat<br/>
+      <input type="checkbox" id="dhoni"> Dhoni<br/>
+      <input type="checkbox" id="dravid"> Dravid<br/>
+    </div>
+  </form>
+
+  <script>
+    var selectAllHandle = document.getElementById('selectAll');
+    var playersHandle = document.getElementById('players');
+    var playersList = playersHandle.getElementsByTagName('input');
+
+    selectAllHandle.onclick = function () {
+      if (selectAllHandle.checked) {
+        setCheckboxValue(true);
+      } else {
+        setCheckboxValue(false);
+      }
+    };
+
+    function setCheckboxValue(value) {
+      for (var i = 0; i < playersList.length; i++) {
+          playersList[i].checked = value;
+        }
+    }
+  </script>
+</body>
+</html>

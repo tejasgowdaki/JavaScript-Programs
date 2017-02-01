@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Restaurant Object</title>
+</head>
+<body>
+  <script>
+    function Restaurant(name, location) {
+      this.name = name;
+      this.location = location;
+      this.details = function() {
+        return this.name + " " + this.location
+      };
+    }
+
+    var r1 = new Restaurant("MTR", "Jayanagar");
+    console.log(r1);
+    console.log(r1.details());
+  </script>
+</body>
+</html>

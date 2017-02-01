@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EMI Calculator</title>
+</head>
+<body>
+  <form id="emiCalc" method="post" action="#">
+    <p id="errorMsg"></p>
+    <label>FD Amount</label>
+    <input type="text" id="amount"/><br/>
+    <label>Interest Rate</label>
+    <input type="text" id="interest"/><br/>
+    <label>Number of Years</label>
+    <input type="text" id="years"/><br/>
+    <input type="submit" value="Calculate Interest"/>
+    <h2>Total Interest : <span id="total"></span></h2>
+  </form>
+  <script>
+    var amountHandle = document.getElementById('amount');
+    var interestHandle = document.getElementById('interest');
+    var yearsHandle = document.getElementById('years');
+    var errorMsgHandle = document.getElementById('errorMsg');
+    var totalHandle = document.getElementById('total');
+    var formHandle = document.getElementById('emiCalc');
+    var amountValue;
+    var interestValue;
+    var yearsValue;
+    var totalValue;
+
+    amountHandle.onblur = function(){
+      amountValue = amountHandle.value;
+      checkValue(amountValue, "Amount")
+    };
+
+    interestHandle.onblur = function(){
+      interestValue = interestHandle.value;
+      checkValue(interestValue, "Interest")
+    };
+
+    yearsHandle.onblur = function(){
+      yearsValue = yearsHandle.value;
+      checkValue(yearsValue, "Years")
+    };
+
+    formHandle.onsubmit = function (e) {
+      console.log(e);
+      e.preventDefault();
+      if ((amountValue !== undefined) && (interestValue !== undefined) && (yearsValue !== undefined)) {
+        totalValue = (amountValue * interestValue / 100) * yearsValue;
+        totalHandle.innerHTML = totalValue;
+      }
+    };
+
+    function checkValue(value, type) {
+      if (value <= 0 ) {
+        errorMsgHandle.innerHTML = type + " should be greater than 0";
+      } else {
+        errorMsgHandle.innerHTML = "";
+      }
+    }
+  </script>
+</body>
+</html>

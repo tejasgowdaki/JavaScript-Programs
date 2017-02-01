@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Functions</title>
+</head>
+<body>
+
+  <span id="n1">10</span> <span id="operator">+</span> <span id="n2">5</span> = <span id="result"></span>
+  <script>
+
+    var n1 = document.getElementById("n1").innerHTML;
+    var n2 = document.getElementById("n2").innerHTML;
+    var op = document.getElementById("operator").innerHTML;
+    var result = document.getElementById("result");
+
+    answer = arithmatic(n1, n2, op)
+
+    function arithmatic(n1, n2, op) {
+      if (op == '+') {
+        return Number(n1) + Number(n2);  // Value from the webpage will always be a string
+      } else if (op == '-') {
+        return n1 - n2;
+      } else if (op == '*') {
+        return n1 * n2;
+      } else if (op == '/') {
+        return n1 / n2;
+      } else {
+        return "Invalid Input(s)";
+      }
+    }
+
+    result.innerHTML = answer;
+    var total = 0;
+
+    function addition(values) {
+      for (var i = 0; i < values.length; i++) {
+        total += values[i];
+      }
+    }
+   var prices = [125,300,175,100.50];
+   addition(prices);
+   console.log(total);
+
+
+
+
+
+  /*
+    function add() {
+      console.log(10 + 20);
+    }
+    add(); // to invoke add function
+
+    function sub(n1, n2) {
+      console.log(n2 - n1);
+    }
+    sub(20,30);
+
+    function mul(n1, n2, n3 = 1) {    // n3 = 1 is the default variable for n1.
+      console.log(n1 * n2 * n3);
+    }
+    mul(10,30); // here you can pass less parameters then defined in function, additional parameters are not assigned values and will be 'undefined'
+
+    function div(n1, n2) {
+      console.log(n2 / n1);
+    }
+    div(20,10,5); // any additional arguments passed will be rejected by the function
+
+  */
+
+  </script>
+</body>
+</html>

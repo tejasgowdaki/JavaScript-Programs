@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TaskBox - Creating Elements via JS</title>
+</head>
+<body>
+  <h3>My Tasks</h3>
+  <p id="msg"></p>
+  <ul id="myTasks">
+
+  </ul>
+  <button id="addTask">
+    Add Task
+  </button>
+  <script>
+    var buttonHandle = document.getElementById('addTask');
+    var myTasks = document.getElementsByTagName('li');
+
+    if (myTasks.length == 0) {
+      document.getElementById('msg').innerHTML = "No Tasks Added, Add your first task";
+    }
+
+    buttonHandle.onclick = function() {
+      var taskHandle = document.getElementById('myTasks');
+      var myList = document.createElement('li');
+      var task = prompt('Enter a Task');
+      if ((task !== null) && (task !== '')) {
+        var listName = document.createTextNode(task);
+        myList.appendChild(listName);
+        taskHandle.appendChild(myList);
+        document.getElementById('msg').innerHTML = "";
+      }
+    };
+
+  /*
+    var taskHandle = document.getElementById('myTasks');
+    var myList = document.createElement('li'); // <li> </li>
+    var listName = document.createTextNode('Get Milk');
+    myList.appendChild(listName); // appendChild will add listName as child node to myList node
+    taskHandle.appendChild(myList);
+  */
+  </script>
+</body>
+</html>

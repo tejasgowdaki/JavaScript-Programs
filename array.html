@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Array</title>
+</head>
+<body>
+  <h2>Schools List</h2>
+  <ol>
+    <span id="schoolList"></span>
+  </ol>
+  <script>
+    // var mobile = new Array();
+    // var landline = Array();
+    /*
+    var schools = ["TEWS", "GWH", "Auden", "BHSS"];
+    var boards = new Array(4); // initialize an array which can have 4 values
+    var ib_boards = ["Cambridge", "IB"];
+    var total = 4;
+
+    console.log(schools); // original
+    console.log(schools.reverse()); // reversed and updated
+    console.log(schools); // it shows reversed array since it is updated
+    console.log(schools.join(', ')); // will join values but does not update
+    console.log(schools.sort()); // sorts and update
+    console.log(schools);
+    console.log(Array.isArray(schools)); // checks if the variable is an array
+    console.log(Array.isArray(total));
+    boards.fill("CBSE");  // fills all four valus as "CBSE"
+    console.log(boards);
+    schools.push("TISB"); // add "TISB" at the end of the schools array
+    console.log(schools);
+    schools.unshift("Indus"); // add "Indus" at the begining of schools array
+    console.log(schools);
+    console.log(boards.concat(ib_boards)); //ib_boards array is added to boards array
+    console.log(boards); // after concat its values are udated
+    console.log(ib_boards); // after concat its values will remain same
+    console.log(schools);
+    schools_splice = schools.splice(0,3) // removes shcools values at index 0, 1, 2
+    console.log(schools); // contails updated values
+    console.log(schools_splice) // contains splices values
+    console.log(schools.includes("TISB")); // check if the value is present
+    console.log(schools.includes("APS"));
+    console.log(schools.indexOf("TISB")); // givaes the index value of the value
+    console.log(schools.indexOf("APS")); // give -1 if the value is not present
+    */
+
+   var marks = [75, 48, 66, 80, 41, 55];
+
+   function select1Class(mark) {
+     return mark >= 60;
+   }
+
+   function select2Class(mark) {
+      return (mark >= 40 && mark < 60);
+   }
+
+   var firstclass = marks.filter(select1Class); // gives all the values which satisfies the condition
+   console.log(firstclass);
+
+   var secondclass = marks.filter(select2Class); // gives all the values which satisfies the condition
+   console.log(secondclass);
+
+   var result = marks.find(select1Class); // gives first value which satisfies the condition
+   console.log(result);
+
+   var schools = ["TEWS", "GWH", "Auden", "BHSS"];
+   for (var i = 0; i < schools.length; i++) {   // here length is not a function it is a property
+     console.log(schools[i]);
+   }
+
+   var list = "";
+   schools.forEach(function(school){    // here school is sent from forEach function
+    list += "<li>" + school + "</li>";
+   })
+
+   var schoolList = document.getElementById('schoolList');
+   schoolList.innerHTML = list;
+
+   console.log("Total schools : ", schools.length);
+
+  </script>
+
+</body>
+</html>
