@@ -22,15 +22,21 @@
     }
 
     buttonHandle.onclick = function() {
+
       var taskHandle = document.getElementById('myTasks');
       var myList = document.createElement('li');
+
       var task = prompt('Enter a Task');
+
       if ((task !== null) && (task !== '')) {
         var listName = document.createTextNode(task);
+
         myList.appendChild(listName);
         taskHandle.appendChild(myList);
+
         document.getElementById('msg').innerHTML = "";
       }
+
     };
 
   /*

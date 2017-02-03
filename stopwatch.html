@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>stopwatch</title>
+</head>
+<body>
+
+  <button id="timeStart">Start Session</button>
+  <button id="timeStop">End Session</button>
+
+  <h1><span id="hour">0</span> : <span id="minute">00</span> : <span id="second">0</span></h1>
+
+  <button id="start">Start</button>
+  <button id="stop">Stop</button><br/><br/>
+
+  <table>
+    <thead>
+      <th>Start Time</th>
+      <th>Stop Time</th>
+    </thead>
+    <tbody>
+      <td id="startTimeColumn"></td>
+      <td id="stopTimeColumn"></td>
+    </tbody>
+  </table>
+
+  <script>
+    var hr = 0;
+    var min = 0;
+    var sec = 1;
+
+    var hourHandle = document.getElementById("hour");
+    var minuteHandle = document.getElementById('minute');
+    var secondHandle = document.getElementById('second');
+
+    var timeStartHandle = document.getElementById('timeStart');
+    var timeStopHandle = document.getElementById('timeStop')
+
+    var startHandle = document.getElementById('start');
+    var stopHandle = document.getElementById('stop');
+
+    var startTime = [];
+    var stopTime = [];
+
+    function secondCount(){
+      if (sec === 60) {
+        sec = 0;
+        secondHandle.innerHTML = sec;
+        sec++;
+        min++;
+        minuteCount();
+      } else {
+        secondHandle.innerHTML = sec;
+        sec++;
+      }
+    }
+
+    function minuteCount() {
+      if (min  === 60) {
+        min = 0;
+        minuteHandle.innerHTML = min;
+        hr++;
+      } else {
+        minuteHandle.innerHTML = min;
+      }
+    }
+
+    hourHandle.innerHTML = hr;
+
+    timeStartHandle.onclick = function () {
+      setIntervalHandle = setInterval(secondCount,1000)
+      startTime.push(captureTime());
+      timeStartHandle.style.display = 'none';
+      timeStopHandle.style.visibility = 'visible';
+      timeStopHandle.disabled = true;
+      startHandle.disabled = true;
+    };
+
+    timeStopHandle.onclick = function(){
+      var confirmSessionEnd = confirm("Are you sure?")
+      if(confirmSessionEnd){
+        clearInterval(intervalHandle);
+      }
+    };
+
+    startHandle.onclick = function () {
+      startTime.push(captureTime());
+      startHandle.disabled = true;
+      stopHandle.disabled = false;
+    };
+
+    stopHandle.onclick = function () {
+      stopTime.push(captureTime());
+      stopHandle.disabled = true;
+      startHandle.disabled = false;
+      timeStopHandle.disabled = false;
+      displaySession();
+    };
+
+    function captureTime() {
+      hourValue = hourHandle.innerHTML;
+      minuteValue = minuteHandle.innerHTML;
+      secondValue = secondHandle.innerHTML;
+      return hourValue + " : " + minuteValue + " : " + secondValue;
+    }
+
+    function displaySession() {
+      var startTimeColumnHandle = document.getElementById('startTimeColumn');
+      var stopTimeColumnHandle = document.getElementById('stopTimeColumn');
+
+      var startList = document.createElement('p');
+      var stopList = document.createElement('p');
+
+      var sessionStartTime = document.createTextNode(startTime[startTime.length - 1]);
+      var sessionStopTime = document.createTextNode(stopTime[stopTime.length - 1]);
+
+      startList.appendChild(sessionStartTime);
+      stopList.appendChild(sessionStopTime);
+      startTimeColumnHandle.appendChild(startList);
+      stopTimeColumnHandle.appendChild(stopList);
+    }
+
+
+    timeStopHandle.style.visibility = 'hidden'; //|| 'visible';
+  </script>
+</body>
+</html>
